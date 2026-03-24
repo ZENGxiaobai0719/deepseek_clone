@@ -1,36 +1,51 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# DeepSeek Clone Practice
 
-## Getting Started
+一个基于 Next.js + Clerk + Drizzle + AI SDK 的 DeepSeek 风格聊天练习项目。
 
-First, run the development server:
+## 快速开始
+
+1. 安装依赖
+
+```bash
+npm install
+```
+
+2. 创建环境变量文件
+
+```bash
+cp .env.example .env
+```
+
+3. 按照 `.env.example` 注释填写必须项（尤其是 `DEEPSEEK_API_KEY` 与 `DATABASE_URL`）
+
+4. 启动开发服务器
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+打开 [http://localhost:3000](http://localhost:3000)。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 必填环境变量说明
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `DEEPSEEK_API_KEY`: DeepSeek API Key，必须是有效且有余额的 key
+- `DATABASE_URL`: Postgres 连接串
+- `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY` / `CLERK_SECRET_KEY`: Clerk 登录配置
 
-## Learn More
+如果遇到 `Insufficient Balance`，说明 key 可用但余额不足；如果遇到 `invalid api key`，说明 key 无效或不匹配当前网关。
 
-To learn more about Next.js, take a look at the following resources:
+## 发布到 GitHub 前检查
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- 不要提交 `.env`（仓库已忽略）
+- 只提交 `.env.example`
+- 重新生成并替换你本地泄露过的密钥（Clerk、DeepSeek、数据库）
+- 检查截图/录屏里是否显示个人邮箱、key、数据库地址
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 常用命令
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm run dev
+npm run build
+npm run start
+npm run lint
+```
