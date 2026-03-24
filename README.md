@@ -34,12 +34,6 @@ npm run dev
 
 如果遇到 `Insufficient Balance`，说明 key 可用但余额不足；如果遇到 `invalid api key`，说明 key 无效或不匹配当前网关。
 
-## 发布到 GitHub 前检查
-
-- 不要提交 `.env`（仓库已忽略）
-- 只提交 `.env.example`
-- 重新生成并替换你本地泄露过的密钥（Clerk、DeepSeek、数据库）
-- 检查截图/录屏里是否显示个人邮箱、key、数据库地址
 
 ## 常用命令
 
